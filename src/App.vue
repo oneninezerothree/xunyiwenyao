@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
+    <aqfooter></aqfooter>
   </div>
 </template>
 
 <script>
+import aqfooter from './public/footer.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+    aqfooter
+  }
 }
 </script>
 
 <style>
+html,body{
+  margin:0;
+  padding:0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

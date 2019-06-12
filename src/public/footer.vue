@@ -1,5 +1,5 @@
 <template>
-    <div id="aq-footer">
+    <div id="aq-footer" v-if="istimetoshow">
         <div class="iconbox" v-for="(item,index) in iconbox" :key="index" @click="gotopage(item.aqpath)">
             <i :class="item.iconclass"></i>
             <span>{{item.font}}</span>
@@ -22,6 +22,11 @@ export default {
         gotopage(aqpath){
             this.$router.push(aqpath)
         }
+    },
+    computed:{
+        istimetoshow(){
+            return this.$store.state.isshowtime
+        }
     }
 }
 </script>
@@ -35,10 +40,11 @@ export default {
         justify-content: space-around;
         font-size: 30px;
         line-height: 40px;
-        background: pink;
+        background: skyblue;
         position:fixed;
         left:0;
         bottom:0;
+        color:#fff;
     }
     #aq-footer .iconbox{
         display: flex;

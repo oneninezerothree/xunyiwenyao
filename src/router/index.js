@@ -4,6 +4,8 @@ import Home from '../view/Home.vue'
 import List from '../view/List.vue'
 import Order from '../view/Order.vue'
 import Me from '../view/Me.vue'
+import Detail from '../view/detail.vue'
+import Cart from '../view/Cart.vue'
 
 Vue.use(Router)
 
@@ -28,6 +30,16 @@ export default new Router({
       path:'/aqme',
       name:'Me',
       component:Me
+    },
+    {
+      path:'/detail',
+      name:'Detail',
+      component:Detail
+    },
+    {
+      path:'/aqcart',
+      name:'Cart',
+      component:Cart
     }
   ]
 })

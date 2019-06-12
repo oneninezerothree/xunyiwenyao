@@ -1,11 +1,13 @@
 <template>
     <div id="aq-home">
-        <h1>这是一个首页</h1>
+        <span>首页</span>
     </div>
 </template>
 <script>
 export default {
-    
+    created(){
+        this.$store.state.isshowtime = true
+    }
 }
 </script>
 <style>

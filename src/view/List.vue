@@ -1,11 +1,13 @@
 <template>
     <div id="aq-list">
-        <h1>这是一个列表</h1>
+        <span>这是一个列表</span>
     </div>
 </template>
 <script>
 export default {
-    
+    created(){
+        this.$store.state.isshowtime = true
+    }
 }
 </script>
 <style>

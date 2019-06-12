@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="neirong">
-            <div class="itembox" v-for="(item,i) in neirong" :key="i" v-if="isclick==i">
+            <div class="itembox" v-for="(item,i) in neirong" :key="i" v-show="isclick==i">
                 {{item.wenben}}
             </div>
         </div>

@@ -6,6 +6,8 @@ import Order from '../view/Order.vue'
 import Me from '../view/Me.vue'
 import Detail from '../view/detail.vue'
 import Cart from '../view/Cart.vue'
+import addCart from '../view/addtocart.vue'
+
 
 Vue.use(Router)
 
@@ -33,6 +35,7 @@ export default new Router({
     },
     {
       path:'/detail',
+      query: 11,
       name:'Detail',
       component:Detail
     },
@@ -40,6 +43,11 @@ export default new Router({
       path:'/aqcart',
       name:'Cart',
       component:Cart
+    },
+    {
+      path:'/addtocart',
+      name:'addCart',
+      component:addCart
     }
   ]
 })

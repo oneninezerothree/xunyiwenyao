@@ -1,7 +1,13 @@
 <template>
   <div id="aq-detail">
     <div class="aq-daohang">
-        快速导航
+        <div class="itembox" v-for="(item,i) in daohang" :key="i" @click="gotopage(item.aqpath)" v-show="theround==true">
+          <i :class="item.iconclass"></i>
+          <span>{{item.font}}</span>
+        </div>
+        <div class="itembox" @click="togolesmall">
+          <i class="el-icon-arrow-down"></i>
+        </div>
     </div>
     <div class="ad-top">
       <i class="el-icon-arrow-left" @click="goback"></i>
@@ -17,15 +23,14 @@
       </div>
       <div class="zongbox">
         <div class="jigebox">
-          <p>【中文讲解+国际自助午餐】米尔福德峡湾一日游(皇后镇或蒂阿瑙出发+透明玻璃巴士+豪华游船)</p>
+          <p>{{wenzi.title}}</p>
           <div>
             <div class="jiage">
               <span class="red">￥</span>
-              <span class="red">606.43</span>
-              <span class="red">起</span>
+              <span class="red">{{wenzi.money}}</span>
               <span class="blue">起价说明</span>
             </div>
-            <span>已售18347</span>
+            <span>{{wenzi.sale}}</span>
           </div>
           <p class="youhui">
             <span>优惠</span>
@@ -40,8 +45,11 @@
           </p>
         </div>
         <div class="xinchengbox">
-          <div class="topbox">行程概要</div>
-          <p>顶级观光巴士+豪华游轮带您360度欣赏世界第八大奇迹米尔福德峡湾全景</p>
+          <div class="topbox">
+            <i class="el-icon-s-opportunity"></i>
+            行程概要
+            </div>
+          <p>{{wenzi.summary}}</p>
         </div>
         <div class="dianpingbox">
           <div class="topbox">
@@ -62,29 +70,64 @@
         <i class="el-icon-service"></i>
         <span>客服</span>
       </div>
-      <div class="gouwuche">加入购物车</div>
+      <div class="gouwuche" @click="addtocart">加入购物车</div>
       <div class="yuding">立即预定</div>
     </div>
   </div>
 </template>
 <script>
+import request from '../libs/request';
+import { constants } from 'fs';
 export default {
   data() {
     return {
-      lunbo: [
-        { img: require("../assets/img/lunbo1.jpg") },
-        { img: require("../assets/img/lunbo2.jpg") },
-        { img: require("../assets/img/lunbo3.jpg") }
-      ]
-    };
+      lunbo: [],
+      wenzi:{},
+      xuhao:"",
+      daohang:[
+        {iconclass:"el-icon-s-home",font:"首页",aqpath:"/"},
+        {iconclass:"el-icon-shopping-cart-1",font:"购物车",aqpath:"/aqcart"},
+        {iconclass:"el-icon-search",font:"搜索",aqpath:"/"},
+        {iconclass:"el-icon-s-custom",font:"个人中心",aqpath:"/aqme"}
+      ],
+      theround:true
+    }
   },
   methods: {
     goback() {
       this.$router.go(-1);
-    }
+    },
+    gotopage(aqpath){
+        this.$router.push(aqpath)
+    },
+    addtocart(){
+      this.$router.push('/addtocart')
+    },
+    togolesmall(){
+      this.theround = !this.theround;
+    },
+    async getlunbo() {
+      const { g, p } = request;
+      const data = await g({
+        url: 'https://www.easy-mock.com/mock/5d00e9c806c5a82ca8aabe7c/aiqu/detail/lunbo/'+this.xuhao,
+      });
+      this.lunbo = data.data.map((item)=>{
+        return {img:item.lunbo};
+      });
+    },
+    async getwenzi() {
+      const { g, p } = request;
+      const data = await g({
+        url: 'https://www.easy-mock.com/mock/5d00e9c806c5a82ca8aabe7c/aiqu/detail/'+this.xuhao,
+      });
+      this.wenzi = data.data[0]
+    },
   },
   created() {
     this.$store.state.isshowtime = false;
+    this.xuhao = this.$route.query.id;
+    this.getlunbo();
+    this.getwenzi();
   }
 };
 </script>
@@ -95,17 +138,31 @@ export default {
 .blue {
   color: blue;
 }
+.disappear{
+
+}
+#aq-detai .neirongbox{
+  background: red;
+}
 #aq-detail .aq-daohang{
-    width: 120px;
-    height: 120px;
-    background: #fff;
-    border-radius: 50%;
-    font-size: 30px;
-    line-height: 120px;
     position: fixed;
     bottom:400px;
     right:20px;
-    border:2px solid #ccc;
+    border:3px solid #ccc;
+    background: #fff;
+    border-radius: 50px;
+    z-index: 10000;
+}
+#aq-detail .aq-daohang .itembox{
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 20px;
+}
+#aq-detail .aq-daohang .itembox i{
+  font-size: 40px;
 }
 #aq-detail .ad-top {
   height: 84px;
@@ -176,6 +233,28 @@ export default {
 }
 #aq-detail .jigebox .youhui span:nth-of-type(5){
     margin-left: auto;
+}
+#aq-detail .xinchengbox{
+  background: #fff;
+  margin:20px 0;
+}
+#aq-detail .xinchengbox .topbox{
+  font-size: 40px;
+  line-height: 60px;
+  box-sizing: border-box;
+  padding:0 10px;
+  display: flex;
+  flex-direction: row;
+}
+#aq-detail .xinchengbox .topbox i{
+  color:skyblue;
+  font-size: 35px;
+  line-height: 60px;
+}
+#aq-detail .xinchengbox p{
+  text-align: left;
+  font-size: 30px;
+  line-height: 45px;
 }
 #aq-detail .aq-footer{
     position: fixed;

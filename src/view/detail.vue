@@ -138,9 +138,7 @@ export default {
 .blue {
   color: blue;
 }
-.disappear{
 
-}
 #aq-detai .neirongbox{
   background: red;
 }

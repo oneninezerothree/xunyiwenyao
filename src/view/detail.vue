@@ -28,6 +28,7 @@
             <div class="jiage">
               <span class="red">￥</span>
               <span class="red">{{wenzi.money}}</span>
+              <span class="red">起</span>
               <span class="blue">起价说明</span>
             </div>
             <span>{{wenzi.sale}}</span>
@@ -101,7 +102,7 @@ export default {
         this.$router.push(aqpath)
     },
     addtocart(){
-      this.$router.push('/addtocart')
+      this.$router.push({path: '/addtocart', query:{id:11}})
     },
     togolesmall(){
       this.theround = !this.theround;
@@ -169,7 +170,7 @@ export default {
   font-weight: 700;
   position: fixed;
   z-index: 100;
-  width: 750px;
+  width: 100%;
   color: #fff;
   background-color: rgba(200, 200, 200, 0.1);
 }
@@ -256,7 +257,7 @@ export default {
 }
 #aq-detail .aq-footer{
     position: fixed;
-    width:750px;
+    width:100%;
     height: 100px;
     background: pink;
     bottom:0;

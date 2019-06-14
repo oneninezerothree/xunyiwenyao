@@ -6,7 +6,8 @@
 <script>
 export default {
     created(){
-        this.$store.state.isshowtime = true
+        this.$store.state.isshowtime = true;
+        this.$store.state.pages = this.$route.path;
     }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div id="aq-footer" v-if="istimetoshow">
-        <div class="iconbox" v-for="(item,index) in iconbox" :key="index" @click="gotopage(item.aqpath)">
+        <div class="iconbox" v-for="(item,index) in iconbox" :key="index" @click="gotopage(item.aqpath)" :class="item.aqpath == pageslight ? 'yellow' : '' ">
             <i :class="item.iconclass"></i>
             <span>{{item.font}}</span>
         </div>
@@ -26,13 +26,19 @@ export default {
     computed:{
         istimetoshow(){
             return this.$store.state.isshowtime
+        },
+        pageslight(){
+            return this.$store.state.pages
         }
     }
 }
 </script>
 <style scoped>
+    .yellow{
+        color:yellow;
+    }
     #aq-footer{
-        width:750px;
+        width:100%;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -48,6 +54,7 @@ export default {
     }
     #aq-footer .iconbox{
         display: flex;
+        flex:1;
         flex-direction: column;
     }
     #aq-footer .iconbox i{

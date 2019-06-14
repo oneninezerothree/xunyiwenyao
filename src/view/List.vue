@@ -7,6 +7,8 @@
 export default {
     created(){
         this.$store.state.isshowtime = true
+        this.$store.state.pages = this.$route.path;
+        console.log("是啥",this.$store.state.pages)
     }
 }
 </script>

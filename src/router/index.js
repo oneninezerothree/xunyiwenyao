@@ -5,6 +5,12 @@ import Home from '../views/Home.vue'
 import Reslogin from '../views/Reslogin.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import List from '../view/List.vue'
+import Order from '../view/Order.vue'
+import Detail from '../view/detail.vue'
+import Cart from '../view/Cart.vue'
+import addCart from '../view/addtocart.vue'
+
 
 Vue.use(Router)
 
@@ -29,6 +35,32 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: Register
+    },
+    {
+      path:'/aqlist',
+      name:'List',
+      component:List
+    },
+    {
+      path:'/aqorder',
+      name:'Order',
+      component:Order
+    },
+    {
+      path:'/detail',
+      query: 11,
+      name:'Detail',
+      component:Detail
+    },
+    {
+      path:'/aqcart',
+      name:'Cart',
+      component:Cart
+    },
+    {
+      path:'/addtocart',
+      name:'addCart',
+      component:addCart
     }
   ]
 })

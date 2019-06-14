@@ -8,8 +8,7 @@
         </div>  
         <div class="content">
             <ul>
-                <li v-for="(a,index) in remdata" :key="index">
-                    <a href="http://">
+                <li v-for="(a,index) in remdata" :key="index" @click="gotdetail(11)" >
                         <img :src="a.imgs" alt="">
                         <p class="contcenter" v-text="a.texts"></p>
                         <p class="confoot">
@@ -21,7 +20,7 @@
                                 人去过
                             </span>
                         </p>
-                    </a>
+                 
                 </li>
             </ul>
         </div>
@@ -45,7 +44,10 @@ export default {
         url:"https://www.easy-mock.com/mock/5cff3ac53d58fe0e71bdb76f/example/remdata"
       })
       this.remdata = [...this.remdata , ...data.data.remdata];
-    }
+    },
+    gotdetail(num){
+        this.$router.push({path: '/detail/', query:{id:num}})
+    },
   }
 };
 </script>
@@ -105,11 +107,6 @@ export default {
         padding: 8px 12px 8px 12px;
         height: 190px;
         box-shadow: 0px 6px 20px 0px rgba(121, 152, 215, 0.4);
-        a {
-          display: block;
-          width: 100%;
-          height: 100%;
-        }
         img {
           display: block;
           width: 100%;

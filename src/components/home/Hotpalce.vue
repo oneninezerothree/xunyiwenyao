@@ -8,11 +8,9 @@
         </div>
         <div class="imgbox">
             <ul>
-                <li v-for="(a,index) in hotsale" :key="index">
+                <li v-for="(a,index) in hotsale" :key="index"  @click="gotdetail(index)">
                     <span v-text="a.texts">圣灵群岛</span>
-                    <a href="http://">
                         <img :src="a.imgs" alt="">
-                    </a>
                 </li>
             </ul>
         </div>
@@ -36,6 +34,9 @@ export default {
         url:"https://www.easy-mock.com/mock/5cff3ac53d58fe0e71bdb76f/example/aiquhotsale"
       })
       this.hotsale = [...this.hotsale , ...data.data.hotsale];
+    },
+    gotdetail(num){
+        this.$router.push({path: '/detail/', query:{id:num}})
     }
   }
 };
@@ -92,15 +93,12 @@ export default {
         height: 75px;
         box-sizing: border-box;
         overflow: hidden;
-        a{
-            display: block;
-            width: 100%;
-            height: 100%;
+        
             img{
                 width: 100%;
                 height: 100%;
             }
-        }
+      
         span{
             position: absolute;
             left: 15px;

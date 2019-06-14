@@ -33,6 +33,9 @@ export default {
     Hotpalce,
     Recomment
   },
+  created(){
+        this.$store.state.isshowtime = true
+  },
   mounted(){
     window.addEventListener("scroll",this.handleFun);
   },

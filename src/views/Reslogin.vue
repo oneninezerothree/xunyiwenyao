@@ -22,14 +22,19 @@
         <p class="center"></p>
         <div class="more">
             <p>
-                <i class="el-icon-tickets ileft"></i>
-                <span>我的订单</span>
-                <i class="el-icon-arrow-right iright"></i>
+                <router-link to="/aqorder">
+                    <i class="el-icon-tickets ileft"></i>
+                    <span>我的订单</span>
+                    <i class="el-icon-arrow-right iright"></i>
+
+                </router-link>
             </p>
             <p>
-                <i class="el-icon-shopping-cart-2 ileft"></i>
-                <span>购物车</span>
-                <i class="el-icon-arrow-right iright"></i>
+                <router-link to="/aqcart">
+                    <i class="el-icon-shopping-cart-2 ileft"></i>
+                    <span>购物车</span>
+                    <i class="el-icon-arrow-right iright"></i>
+                </router-link>
             </p>
             <p>
                  <i class="el-icon-chat-dot-square ileft"></i>
@@ -55,6 +60,14 @@
         </div>
     </div>
 </template>
+<script>
+export default {
+  created() {
+    this.$store.state.isshowtime = true;
+  }
+};
+</script>
+
 <style lang="scss" scoped>
 .header {
   height: 150px;
@@ -107,7 +120,7 @@
         margin: 0 3%;
         height: auto;
         overflow: hidden;
-        -moz-border-radius: 3px;    
+        -moz-border-radius: 3px;
         -webkit-border-radius: 3px;
         border-radius: 3px;
         color: #fff;
@@ -131,43 +144,41 @@
     }
   }
 }
-.center{
-    height: 10px;
-    background: #eee;
+.center {
+  height: 10px;
+  background: #eee;
 }
-.more{
-    p{
-        height: 41px;
-        line-height: 41px;
-        border-bottom: 1px solid #eee;
-        margin:0 5px; 
-        .ileft{
-            float: left;
-            width: 20px;
-            height: 20px;
-            font-size: 20px;
-            margin: 10px 10px 0px; 
-        }
-        span{
-            float: left;
-            color:#666;
-            font-size: 16px;
-            margin-left: 20px;
-        }
-        .iright{
-            float: right;
-            width: 20px;
-            height: 20px;
-            font-size: 20px;
-            margin: 10px 10px 0px; 
-
-        }
-        .rmb{
-            float: right;
-            color: #666;
-        }
+.more {
+  p {
+    height: 41px;
+    line-height: 41px;
+    border-bottom: 1px solid #eee;
+    margin: 0 5px;
+    .ileft {
+      float: left;
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      margin: 10px 10px 0px;
     }
-
+    span {
+      float: left;
+      color: #666;
+      font-size: 16px;
+      margin-left: 20px;
+    }
+    .iright {
+      float: right;
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      margin: 10px 10px 0px;
+    }
+    .rmb {
+      float: right;
+      color: #666;
+    }
+  }
 }
 </style>
 

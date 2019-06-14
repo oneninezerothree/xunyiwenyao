@@ -16,7 +16,7 @@
         </div>
         <div class="body">
             <ul>
-                <li v-for="(a,index) in hotData" :key="index">
+                <li v-for="(a,index) in hotData" :key="index" @click="gotdetail(index)">
                     <div>
                         <img :src="a.imgurl" alt="">
                     </div>
@@ -56,6 +56,9 @@ export default {
         url:"https://www.easy-mock.com/mock/5cff3ac53d58fe0e71bdb76f/example/hotsale"
       })
       this.hotData = [...this.hotData, ...data.data.hot];
+    },
+    gotdetail(num){
+        this.$router.push({path: '/detail/', query:{id:num}})
     },
     countdown: function () {
       const end = Date.parse(new Date('2019-12-01'))

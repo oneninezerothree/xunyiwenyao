@@ -38,7 +38,7 @@ export default {
     },
     methods:{
         gotome(){
-            this.$router.push('/aqme');
+            this.$router.push('/reslogin');
         },
         gotoback(){
             this.$router.go(-1);
@@ -87,7 +87,7 @@ export default {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        height: 120px;
+        height: 180px;
         font-size: 30px;
         line-height: 60px;
         border-bottom: 1px solid #ccc;

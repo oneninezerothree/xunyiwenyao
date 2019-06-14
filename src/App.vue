@@ -16,6 +16,21 @@ export default {
 </script>
 
 <style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+}
+ul li{
+  list-style: none;
+}
+input{
+   outline: none;
+   border: 0px;
+   }
 html,body{
   height:100%;
   margin:0;

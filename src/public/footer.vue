@@ -14,7 +14,7 @@ export default {
                 {iconclass:"el-icon-s-home",font:"首页",aqpath:"/"},
                 {iconclass:"el-icon-s-grid",font:"列表页",aqpath:"/aqlist"},
                 {iconclass:"el-icon-s-order",font:"订单",aqpath:"/aqorder"},
-                {iconclass:"el-icon-s-custom",font:"我的",aqpath:"/aqme"}
+                {iconclass:"el-icon-s-custom",font:"我的",aqpath:"/reslogin"}
             ]
         }
     },

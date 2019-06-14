@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../view/Home.vue'
-import List from '../view/List.vue'
-import Order from '../view/Order.vue'
-import Me from '../view/Me.vue'
-import Detail from '../view/detail.vue'
-import Cart from '../view/Cart.vue'
-import addCart from '../view/addtocart.vue'
+// import HelloWorld from '@/components/HelloWorld'
+import Home from '../views/Home.vue'
+import Reslogin from '../views/Reslogin.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
+import List from '../views/List.vue'
+import Order from '../views/Order.vue'
+import Detail from '../views/detail.vue'
+import Cart from '../views/Cart.vue'
+import addCart from '../views/addtocart.vue'
 
 
 Vue.use(Router)
@@ -15,8 +18,23 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'home',
       component: Home
+    },
+    {
+      path: '/reslogin',
+      name: 'reslogin',
+      component: Reslogin
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
     },
     {
       path:'/aqlist',
@@ -27,11 +45,6 @@ export default new Router({
       path:'/aqorder',
       name:'Order',
       component:Order
-    },
-    {
-      path:'/aqme',
-      name:'Me',
-      component:Me
     },
     {
       path:'/detail',

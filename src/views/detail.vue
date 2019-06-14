@@ -89,7 +89,7 @@ export default {
         {iconclass:"el-icon-s-home",font:"首页",aqpath:"/"},
         {iconclass:"el-icon-shopping-cart-1",font:"购物车",aqpath:"/aqcart"},
         {iconclass:"el-icon-search",font:"搜索",aqpath:"/"},
-        {iconclass:"el-icon-s-custom",font:"个人中心",aqpath:"/aqme"}
+        {iconclass:"el-icon-s-custom",font:"个人中心",aqpath:"/reslogin"}
       ],
       theround:true
     }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let a=['【买大送小 中文讲解】米尔福德峡湾游船巡航一日游(可选前排+玻璃顶巴士+午餐+皇后镇或蒂阿瑙往返',
+
+
+'【中文导游讲解】新西兰怀托摩萤火虫洞+霍比特人村一日游(奥克兰往返含午餐)',
+
+'【中文向导】格林诺奇指环王三部曲探索之旅(快艇+徒步+四驱巴士 皇后镇/格林诺奇出发)',
+
+'皇后镇卡德罗纳滑雪场(Cardrona)(可选中文教练 一日滑雪套票 滑雪交通 装备 课程可选)',
+
+'【扫码入场】西班牙 马德里 伯纳乌球场门票(皇马主场)',
+
+'凯恩斯库兰达热带雨林经典缆车+火车套票(可选午餐)',
+
+'布里斯班摩顿海豚岛观鲸一日游(浪漫夕阳+观看/喂食野生海豚可选)',
+
+'【必玩】墨尔本大洋路精品小团中文一日游(11人小团/微管家服务/买赠特惠)',
+'【买大送小】圣灵群岛哈迪大堡礁游船一日游 (艾尔利滩/汉密尔顿岛/白日梦岛出发)',
+'【高迪名作】西班牙巴塞罗那巴特罗之家门票 (立即确认+中文语音导览+3种规格可选)',]
+let b=[
+    '¥526起',
+    '¥1280起',
+    '¥989起',
+    '¥143起',
+    '¥172起',
+    '¥415起',
+    '¥406起',
+    '¥421起',
+    '¥1044起',
+    '¥162起'
+]
+let a1=['https://pic2.itrip.com/p/20180913112351-standard-470.jpg',
+
+'https://pic2.itrip.com/p/20171018165317-standard-98.jpg',
+
+'https://pic2.itrip.com/p/20160919161300-standard-300.jpg',
+
+'https://pic2.itrip.com/p/20190511145210-standard-65.jpg',
+
+'https://pic2.itrip.com/p/20160131105926-standard-429.jpg',
+
+'https://pic2.itrip.com/p/20170605102132-standard-987.jpg',
+
+'https://pic2.itrip.com/p/20190417153509-standard-719.jpg',
+
+'https://pic2.itrip.com/p/20180425151821-standard-533.jpg',
+'https://pic2.itrip.com/p/20150715154405-standard-566.jpg',
+'https://pic2.itrip.com/p/20171109111415-standard-773.jpg']
+
+let dsf=[];
+for(let s=0;s<10;s++)
+{
+    dsf.push({
+        imgurl:a1[s],
+        // mintitle:a1[s],
+        price:b[s],
+        content:a[s]
+    })
+}
+console.log(JSON.stringify(dsf))        
+        
+        
+        </script>
+</body>
+</html>

@@ -2612,7 +2612,7 @@
     </div>
   </div>
 </template>
-<script lang="ts">
+<script>
 import Vue from "vue";
 import request from "../libs/request";
 export default Vue.extend({
@@ -2651,7 +2651,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style scoped>
 .main {
   width: 100%;
   height: 100%;

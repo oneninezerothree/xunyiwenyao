@@ -3,7 +3,11 @@
     <p class="search-toast">输入关键字搜索</p>
   </div>
 </template>
+<<<<<<< HEAD
 <style>
+=======
+<style scoped>
+>>>>>>> dev
 .search-list {
     width: 100%;
     height: 100%;

@@ -20,28 +20,18 @@ export default {
   }
 }
 </script>
-<<<<<<< HEAD
-<style>
-.list-header {
-    height: 41px;
-    font-size: 62.5%;
-=======
+
 <style scoped>
 .list-header {
     height: 82px;
     font-size:40px;
->>>>>>> dev
 }
 .list-header .layout-header-container {
     position: fixed;
     left: 0;
     width: 100%;
     right: 0;
-<<<<<<< HEAD
-    height: 42px;
-=======
     height: 84px;
->>>>>>> dev
     background-color: #1ac5fb;
     z-index: 1005;
 }
@@ -53,23 +43,16 @@ export default {
     z-index: 1002;
     width: 40px;
     height: 30px;
-<<<<<<< HEAD
-    line-height: 30px;
-=======
+
     line-height: 60px;
->>>>>>> dev
+
     color: #fff;
     text-align: center;
 }
 .list-header .title {
     text-align: center;
-<<<<<<< HEAD
-    line-height: 42px;
-    font-size: 2rem;
-=======
     line-height: 84px;
     font-size:30px;
->>>>>>> dev
     color: #fff;
     font-weight: 400;
 }
@@ -84,11 +67,7 @@ export default {
 }
 .iconfont {
     font-family: iconfont!important;
-<<<<<<< HEAD
-    font-size: 1.8rem;
-=======
     font-size: 30px;
->>>>>>> dev
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -109,11 +88,7 @@ export default {
 }
 .iconfont {
     font-family: iconfont!important;
-<<<<<<< HEAD
-    font-size: 1.8rem;
-=======
     font-size: 30px;
->>>>>>> dev
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

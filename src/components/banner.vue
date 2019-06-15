@@ -17,10 +17,11 @@
         </section>       
 </template>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <style>
-=======
+
 <style scoped>
->>>>>>> dev
+
 .condition-list {
     height: 40px;
 }
@@ -37,11 +38,8 @@
     width: 100%;
     background-color: #fff;
     z-index: 1002;
-<<<<<<< HEAD
-    height: 38px;
-=======
+
     height: 76px;
->>>>>>> dev
 }
 .all-condition li {
     -webkit-box-flex: 1;
@@ -78,8 +76,7 @@
     width: 8px;
     height: 8px;
 }
-<<<<<<< HEAD
-=======
+
  .all-condition .tab-title{
     color: #4e4e4e;
     font-size:15px;
@@ -87,5 +84,4 @@
     line-height: 0.26667rem;
 }
 
->>>>>>> dev
 </style>

@@ -9,10 +9,17 @@
           </ul>
         </section>
 </template>
+<<<<<<< HEAD
 <style>
 .condition-other-list {
     height: 38px;
     font-size: 62.5%;
+=======
+<style scoped>
+.condition-other-list {
+    height: 76px;
+    font-size: 40px;
+>>>>>>> dev
 }
 .other-condition {
     position: fixed;
@@ -21,7 +28,11 @@
     width: 100%;
     background-color: #fff;
     z-index: 1001;
+<<<<<<< HEAD
     height: 38px;
+=======
+    height: 76px;
+>>>>>>> dev
 }
 .other-condition li {
     padding: 8px 5px;
@@ -42,9 +53,19 @@
 }
 .other-condition li a {
     display: block;
+<<<<<<< HEAD
     padding: 5px 10px;
+=======
+    padding: 22px 20px;
+>>>>>>> dev
     border: 1px solid #aaa;
     border-radius: 5px;
     color: #4e4e4e;
 }
+<<<<<<< HEAD
+=======
+.other-condition a{
+    font-size: 15px;
+}
+>>>>>>> dev
 </style>

@@ -29,7 +29,11 @@
     </ul>
   </div>
 </template>
+<<<<<<< HEAD
 <script lang="ts">
+=======
+<script>
+>>>>>>> dev
 import Vue from 'vue'
 import request from "../libs/request";
 export default Vue.extend({
@@ -56,7 +60,11 @@ export default Vue.extend({
 })
 </script>
 
+<<<<<<< HEAD
 <style>
+=======
+<style scoped>
+>>>>>>> dev
 .product-list li {
     border-bottom: 1px solid #e7e7e7;
     padding: 8px;
@@ -73,9 +81,15 @@ export default Vue.extend({
 }
 .product-list .g-left {
     float: left;
+<<<<<<< HEAD
     height: 70px;
     width: 105px;
     margin-right: 8px;
+=======
+    height: 140px;
+    width: 210px;
+    margin-right: 16px;
+>>>>>>> dev
 }
 a img {
     border: none;
@@ -95,10 +109,17 @@ img {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+<<<<<<< HEAD
     height: 36px;
     line-height: 18px;
     margin: 4px 0 3px;
     font-size: 1.4rem;
+=======
+    height: 144px;
+    line-height: 36px;
+    margin: 4px 0 3px;
+    font-size: 30px;
+>>>>>>> dev
 }
 .product-list .g-right p {
     color: #959595;
@@ -108,10 +129,17 @@ img {
     color: #ff5c60;
 }
 .fz-14 {
+<<<<<<< HEAD
     font-size: 1.4rem;
 }
 .product-list .true-money {
     font-size: 2rem;
+=======
+    font-size: 30px;
+}
+.product-list .true-money {
+    font-size: 30px;
+>>>>>>> dev
 }
 .product-list .yellow {
     color: #ff5c60;
@@ -120,14 +148,26 @@ em, i {
     font-style: normal;
 }
 .product-list .market-money {
+<<<<<<< HEAD
     font-size: 1.2rem;
     text-decoration: line-through;
 }
 .product-list .good-num {
     font-size: 1.2rem;
+=======
+    font-size: 30px;
+    text-decoration: line-through;
+}
+.product-list .good-num {
+    font-size: 30px;
+>>>>>>> dev
     margin-top: 5px;
 }
 .fr {
     float: right;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
 </style>

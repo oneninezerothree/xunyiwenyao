@@ -38,6 +38,7 @@ export default {
         color:yellow;
     }
     #aq-footer{
+        text-align:center;
         width:100%;
         display: flex;
         flex-direction: row;

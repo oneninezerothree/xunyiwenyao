@@ -1,17 +1,24 @@
 <template>
-    <div id="aq-list">
-        <span>这是一个列表</span>
-    </div>
+  <div>
+    <Bheader/>
+    <Asearch/>
+    <Amain/>
+  </div>
 </template>
+
 <script>
+// @ is an alias to /src
+import Bheader from '@/components/Bheader.vue'
+import Asearch from '@/components/Asearch.vue'
+import Amain from '@/components/Amain.vue'
 export default {
-    created(){
-        this.$store.state.isshowtime = true
-        this.$store.state.pages = this.$route.path;
-        console.log("是啥",this.$store.state.pages)
-    }
+  created(){
+    this.$store.state.pages = this.$route.path;
+  },
+  components: {
+    Bheader,
+    Asearch,
+    Amain,
+  }
 }
 </script>
-<style>
-
-</style>

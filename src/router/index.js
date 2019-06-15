@@ -61,6 +61,19 @@ export default new Router({
       path:'/addtocart',
       name:'addCart',
       component:addCart
+    },
+    {
+      path: '/aqlist',
+      name: 'list',
+      component: List
+    },
+    {
+      path: '/about/:id',
+      name: 'about',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     }
   ]
 })

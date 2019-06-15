@@ -1,4 +1,5 @@
 import axios from 'axios'
+import qs from 'qs'
 
 const g = (option) => {
     const {
@@ -15,16 +16,24 @@ const g = (option) => {
 const p = (option) => {
     const {
         url,
-        params
+        headers,
+        shuju
     } = option
-    return axios.post(url, {
-        params: {
-            ...params
-        }
-    })
+    return axios.post(url, qs.stringify(shuju))
+}
+
+const modify = (option) => {
+    const {
+        url,
+        headers,
+        shuju
+    } = option
+    return axios.put(url, qs.stringify(shuju))
 }
 
 export default {
     g,
-    p
+    p,
+    modify
 }
+

@@ -8,7 +8,8 @@ const store = new Vuex.Store({
     //初始化数据
     state:{
         isshowtime:true,
-        pages:"/"
+        pages:"/",
+        detaillist:{}
     }
 });
 // 暴露接口

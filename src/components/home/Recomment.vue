@@ -8,15 +8,17 @@
         </div>  
         <div class="content">
             <ul>
-                <li v-for="(a,index) in remdata" :key="index" @click="gotdetail(11)" >
-                        <img :src="a.imgs" alt="">
-                        <p class="contcenter" v-text="a.texts"></p>
+                <li v-for="(a,index) in remdata" :key="index" @click="gotdetail(a.shopid)" >
+                        <img :src="a.imgs[0].lunbo" alt="">
+                        <p class="contcenter" v-text="a.title"></p>
                         <p class="confoot">
+                            ￥
                             <span class="price" style="color:red" v-text="a.price">
-                                <i style="color:#ccc">起</i>
+                                <!-- <i style="color:#ccc">起</i> -->
                             </span>
+                            <i style="color:red">起</i>
                             <span class="right">
-                                <i style="color:#ccc" v-text="a.much">111</i>
+                                <i style="color:#ccc" v-text="a.salenum">111</i>
                                 人去过
                             </span>
                         </p>
@@ -39,11 +41,14 @@ export default {
   },
   methods: {
     async getShopList() {
-      const { g, p } = request;
+      const { g, p, modify} = request;
       const data = await g({
-        url:"https://www.easy-mock.com/mock/5cff3ac53d58fe0e71bdb76f/example/remdata"
+        url:"http://localhost:1901/goods"
       })
-      this.remdata = [...this.remdata , ...data.data.remdata];
+      // this.remdata = [...this.remdata , ...data.data.remdata];
+      this.remdata = data.data.data;
+      console.log(this.remdata[0].price);
+      
     },
     gotdetail(num){
         this.$router.push({path: '/detail/', query:{id:num}})

@@ -1,12 +1,12 @@
 <template>
     <div id="addtocart">
         <div class="carttop">
-            <i class="el-icon-arrow-left" @click="gotodetail"></i>
+            <i class="el-icon-arrow-left" @click="goback"></i>
             请选择选择日期规格数量
         </div>
         <div class="neirong">
             <div class="riqi">
-                <p>选择日期</p>
+                <p @click="addtocart">选择日期</p>
                 <el-date-picker v-model="value1"  type="date" placeholder="选择日期" value-format="yyyy-MM-dd" :picker-options="pickerOptions" @change="riqi">
                 </el-date-picker>
             </div>
@@ -40,36 +40,15 @@ export default {
             timetime:"",
             shopid:"",
             cartlist:{},
-            cartlistbig:[]
+            cartlistbig:[],
+            img:"",
+            title:""
         }
     },
     methods:{
         gotodetail(){
             if(this.timetime != ""){
-                var storage = window.localStorage;
-                if(storage.cartlist){
-                    this.cartlistbig = JSON.parse(storage.cartlist);
-                    // if(this.cartlistbig.shopid == this.shopid){
-                    //     this.cartlistbig.num += this.num
-                    // }else{
-                    //     console.log("c存在的",this.cartlistbig )
-                    //     this.getcartlist()
-                    // }
-                    for(var i=0;i<this.cartlistbig.length;i++){
-                        if(this.cartlistbig[i].shopid == this.shopid){
-                            this.cartlistbig[i].num += this.num;
-                            break;
-                        }
-                        if(i==this.cartlistbig.length){
-                            this.getcartlist()
-                        }
-                    }
-                }else{
-                    this.getcartlist()
-                }
-                console.log(this.cartlist)
-                // this.$router.go(-1)
-                
+                this.chaxun();
             }else{
               this.$message.error({
                     message: '请选择出行日期'
@@ -79,33 +58,90 @@ export default {
         },
         getcartlist(){  
             this.cartlist.shopid = this.shopid;
-            this.cartlist.jiage = this.jiage;
-            this.cartlist.danjia = this.danjia;
+            this.cartlist.price = this.danjia;
             this.cartlist.num = this.num;
-            this.cartlist.timetime = this.timetime;
-            this.cartlistbig.push(this.cartlist)
-            window.localStorage.cartlist = JSON.stringify(this.cartlistbig)
+            this.cartlist.date = this.timetime;
+            this.cartlist.img = this.img;
+            this.cartlist.title = this.title
+            console.log("购物车列表",this.cartlist);
         },
         riqi(value){
             this.timetime = value;
         },
-        async getxinxi() {
-            const { g, p } = request;
+        async chaxun() {
+            const { g, p,modify } = request;
             const data = await g({
-                url: 'https://www.easy-mock.com/mock/5d00e9c806c5a82ca8aabe7c/aiqu/detail/11'
+                url: 'http://localhost:1901/cart/'+this.shopid
             });
-            this.danjia = Number(data.data[0].money).toFixed(2);  
-            this.jiage = this.danjia
+            if(data.status == 200){
+                // this.$message.success({
+                //     message: '加入购物车成功'
+                // });  
+                // console.log("是啥",data.data.data.length);
+                if(data.data.data.length == 0){
+                    await this.getcartlist();
+                    this.addtocart(this.cartlist);
+                }else{
+                    await this.xiugai({num:this.num});
+                    this.$router.go(-1);
+
+                }
+            }else{
+                this.$message.error({
+                    message: '加入购物车失败，请稍后重试'
+                });  
+            }
         },
+        async addtocart(shuju) {
+            const { g, p,modify } = request;
+            const data = await p({
+                url: 'http://localhost:1901/cart',
+                headers: { 'content-type': 'application/x-www-form-urlencoded' },
+                 shuju: shuju
+            });
+            // console.log(data.data.data.insertedId);
+            if(data.data.data.insertedId != ""){
+                this.$router.go(-1);
+            }else{
+                this.$message.error({
+                    message: '加入购物车失败，请稍后重试'
+                });  
+            }
+        },
+        //渲染页面,得到价格等信息
+        async getxinxi() {
+            const { g, p,modify } = request;
+            const data = await g({
+                url: 'http://localhost:1901/goods/'+this.shopid
+            });
+            this.danjia = Number(data.data.data[0].price).toFixed(2);  
+            this.jiage = this.danjia;
+            this.img = data.data.data[0].imgs[0].lunbo;
+            this.title = data.data.data[0].title;
+        },
+
+        async xiugai(shuju) {
+            const { g, p,modify } = request;
+            const data = await modify({
+                url: 'http://localhost:1901/cart/'+this.shopid,
+                headers: { 'content-type': 'application/x-www-form-urlencoded' },
+                 shuju: shuju
+            });
+            console.log("修改了？",data)
+        },
+
         jiajian(value){
             this.jiage = (this.danjia * value).toFixed(2);
+        },
+        goback(){
+            this.$router.go(-1);
         }
         
     },
     created(){
         this.$store.state.isshowtime = false;
-        this.getxinxi();
         this.shopid = this.$route.query.id;
+        this.getxinxi();
     }
 }
 </script>

@@ -3,24 +3,24 @@
         <div class="carttop">
             <i class="el-icon-arrow-left" @click="gotoback"></i>
             <span>购物车</span>
-            <span>（4）</span>
+            <span>（{{shuliang}}）</span>
             <span>编辑</span>
         </div>
         <div class="neirongbox">
-            <div class="itembox">
+            <div class="itembox" v-for="(item,i) in cartlist" :key="i">
                 <div class="check">
                     <input type="checkbox">
                 </div>
-                <img src="../assets/img/kaola.jpg" alt="">
+                <img :src="item.img" alt="">
                 <div class="weizi">
                     <div>
-                        <p>【昆凌最爱】黄金海岸可伦宾野生动物园门票(可选抱考拉照相/市区酒店接送)
+                        <p>{{item.title}}
                         </p>
                         <i class="el-icon-edit"></i>
                     </div>
                     <p>
                         <span>出行日期:</span>
-                        <span>2019-06-13</span>
+                        <span>{{item.date}}</span>
                     </p>
                     <p>
                         <span>产品规格:</span>
@@ -28,13 +28,13 @@
                     </p>
                     <p>
                         <span>出行人数：</span>
-                        <span>成人X1</span>
+                        <span>{{item.num}}</span>
 
                     </p>
                     <p>
                         <span class="red">￥</span>
-                        <span class="red">90.19</span>
-                        <span class="gotoright">产品ID:2250</span>
+                        <span class="red">{{item.price}}</span>
+                        <span class="gotoright">产品ID:{{item.shopid}}</span>
                     </p>
                 </div>
             </div>
@@ -48,14 +48,32 @@
     </div>
 </template>
 <script>
+import request from "../libs/request";
+import { constants } from 'fs';
 export default {
+    data(){
+        return{
+            cartlist:[],
+            shuliang:""
+        }
+    },
     methods:{
         gotoback(){
             this.$router.go(-1);
-        }
+        },
+        async getCartList() {
+            const { g, p, modify} = request;
+            const data = await g({
+                url:"http://localhost:1901/cart"
+            })
+            // this.remdata = [...this.remdata , ...data.data.remdata];
+            this.cartlist = data.data.data;
+            this.shuliang = data.data.data.length;
+        },
     },
     created(){
         this.$store.state.isshowtime = false;
+        this.getCartList();
     }
 }
 </script>
@@ -69,6 +87,7 @@ export default {
     #aq-cart{
         display: flex;
         flex-direction: column;
+        flex-wrap: nowrap;
         height:100%;
     }
     #aq-cart .carttop{
@@ -92,6 +111,7 @@ export default {
     }
     #aq-cart .neirongbox{
         flex:1;
+        overflow:auto;
     }
     #aq-cart .cartfooter{
         height:100px;
@@ -100,6 +120,10 @@ export default {
         flex-direction: row;
         font-size: 35px;
         line-height: 100px;
+/*        position:fixed;
+        left:0;
+        bottom:0;
+        width: 100%;*/
     }
     #aq-cart .cartfooter input{
         flex:1;

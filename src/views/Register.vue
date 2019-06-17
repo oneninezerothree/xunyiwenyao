@@ -4,7 +4,7 @@
           <router-link to="/reslogin" class="router">
               <i class="el-icon-arrow-left"></i>
           </router-link>
-            用户名注册
+            <span style="padding-left: 3.5rem;">用户名注册</span>
         </div>
         <div class="form">
             <form action="">
@@ -15,7 +15,7 @@
                 <p v-text="isright" class="numerror"></p>
                 <div>
                    <input type="text" v-model="code" class="mesnum" placeholder="请输入验证码">
-                   <span class="mesbtn" @click="createCode()" v-text="checkCode">
+                   <span style="padding-left: 0.9rem;" class="mesbtn" @click="createCode()" v-text="checkCode">
                        发送验证码
                    </span>
                 </div>
@@ -184,42 +184,42 @@ export default {
 <style lang="scss" scoped>
 
 .top {
-  height: 40px;
-  line-height: 40px;
-  font-size: 16px;
+  height: 80px;
+  line-height: 80px;
+  font-size:32px;
   color: #fff;
   background: #1ac5fb;
   .router{
   float: left;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 20px;
 }
   i {
     float: left;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
   }
 }
 .form {
-  margin-top: 50px;
+  margin-top: 100px;
   form {
     div {
-      height: 35px;
-      margin: 10px 20px;
+      height: 70px;
+      margin: 20px 40px;
     }
     .one {
-      border-radius: 8px;
+      border-radius: 16px;
       background: hsla(212, 70%, 52%, 0.1);
       .name {
         float: left;
         width: 30%;
-        height: 35px;
-        line-height: 35px;
+        height: 70px;
+        line-height: 70px;
         text-align: left;
-        padding-left: 15px;
+        padding-left: 30px;
       }
       .munber {
         float: left;
@@ -227,9 +227,9 @@ export default {
         text-align: left;
         height: 100%;
         color: #bbb;
-        font-size: 13px;
+        font-size: 26px;
         background: hsla(212, 70%, 52%, 0.1);
-        padding-left: 10px;
+        padding-left: 20px;
       }
     }
     .mesnum {
@@ -237,52 +237,52 @@ export default {
       width: 61%;
       height: 100%;
       background: hsla(212, 70%, 52%, 0.1);
-      padding-left: 15px;
-      border-radius: 8px;
+      padding-left:30px;
+      border-radius: 16px;
     }
     .mesbtn {
       float: right;
       width: 38%;
       height: 100%;
       background: #1ac5fb;
-      line-height: 35px;
-      border-radius: 8px;
+      line-height: 70px;
+      border-radius: 16px;
     }
   }
   .photo {
     display: block;
     background: hsla(212, 70%, 52%, 0.1);
-    line-height: 35px;
+    line-height: 70px;
     width: 100%;
-    border-radius: 8px;
-    padding-left: 15px;
+    border-radius: 16px;
+    padding-left: 30px;
   }
 }
 .xieyi {
-  height: 60px;
-  line-height: 60px;
-  font-size: 10px;
+  height: 120px;
+  line-height: 120px;
+  font-size: 20px;
   text-align: right;
   color: #aaa;
 }
 .formbtn {
-  height: 35px;
+  height: 70px;
   width: 90%;
-  line-height: 35px;
+  line-height: 70px;
   background: hsla(212, 70%, 52%, 0.1);
-  margin: 0 20px;
+  margin: 0 40px;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 16px;
 }
 .numerror{
     text-align:left;
-    font-size:12px;
+    font-size:24px;
     color:red;
-    padding-left:30px;
+    padding-left:60px;
 }
 .isrightsbumit{
     text-align:center;
-    font-size:14px;
+    font-size:28px;
     color:#aaa;
 }
 

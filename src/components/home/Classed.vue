@@ -56,7 +56,7 @@
 .home_classed {
   width: 100%;
   background: #fff;
-  margin-top:5px; 
+  margin-top:10px; 
   ul {
     display: flex;
     flex-flow: row wrap;
@@ -68,7 +68,7 @@
       align-items: center;
       justify-content: center;
       flex: 0 1 25%;
-      padding: 14px 2%;
+      padding: 28px 2%;
       a {
         width: 100%;
         text-align: center;
@@ -78,7 +78,7 @@
           height: 60%;
         }
         p {
-          font-size: 12px;
+          font-size: 24px;
           color: #a5adba !important;
         }
       }

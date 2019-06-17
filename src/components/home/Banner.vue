@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="block bannerBox">
-            <el-carousel height="180px" indicator-position="none" arrow="never">
+            <el-carousel height="6.5rem" indicator-position="none" arrow="never">
                 <el-carousel-item v-for="(item,index) in imgs" :key="index">
                     <!-- <h3 class="small">{{ item }}</h3> -->
                     <img :src="item.imgurl" alt="">

@@ -8,15 +8,17 @@
         </div>  
         <div class="content">
             <ul>
-                <li v-for="(a,index) in remdata" :key="index" @click="gotdetail(11)" >
-                  <img :src="a.imgs" alt="">
-                  <p class="contcenter" v-text="a.texts"></p>
+                <li v-for="(a,index) in remdata" :key="index" @click="gotdetail(a.shopid)" >
+                  <img :src="a.imgs[0].lunbo" alt="">
+                  <p class="contcenter" v-text="a.title"></p>
                   <p class="confoot">
+                      ￥
                       <span class="price" style="color:red" v-text="a.price">
-                          <i style="color:#ccc">起</i>
+                          <!-- <i style="color:#ccc">起</i> -->
                       </span>
+                      <i style="color:red">起</i>
                       <span class="right">
-                          <i style="color:#ccc" v-text="a.much">111</i>
+                          <i style="color:#ccc" v-text="a.salenum">111</i>
                           人去过
                       </span>
                   </p>
@@ -30,7 +32,7 @@ import request from "../../libs/request";
 export default {
   data() {
     return {
-     remdata: [],
+      remdata: []
     };
   },
   created() {
@@ -38,101 +40,104 @@ export default {
   },
   methods: {
     async getShopList() {
-      const { g, p } = request;
+      const { g, p, modify } = request;
       const data = await g({
-        url:"https://www.easy-mock.com/mock/5cff3ac53d58fe0e71bdb76f/example/remdata"
-      })
-      this.remdata = [...this.remdata , ...data.data.remdata];
+        url: "http://localhost:1901/goods"
+      });
+      // this.remdata = [...this.remdata , ...data.data.remdata];
+      this.remdata = data.data.data;
+      console.log(this.remdata[0].price);
     },
-    gotdetail(num){
-        this.$router.push({path: '/detail/', query:{id:num}})
-    },
+    gotdetail(num) {
+      this.$router.push({ path: "/detail/", query: { id: num } });
+    }
   }
 };
 </script>
 <style lang="scss" scoped>
 .recomment {
-  padding: 10px 0;
   background: #fff;
+  margin-top: 20px;
   .title {
-    border-bottom: 1px solid #eee;
-    height: 41px;
-    line-height: 41px;
+    border-bottom: 2px solid #eee;
+    height: 82px;
+    line-height: 82px;
     .palce {
       float: left;
-      font-size: 16px;
+      font-size: 32px;
       color: #333;
-      padding-left: 10px;
+      padding-left: 20px;
       font-weight: 700;
     }
     .el-icon-place {
       float: left;
-      width: 20px;
-      height: 18px;
-      font-size: 18px;
-      margin: 10px 0 0 6px;
+      width: 40px;
+      height: 36px;
+      font-size: 36px;
+      margin: 20px 0 0 12px;
       font-weight: 700;
     }
     .more {
-      margin-left: 195px;
+      margin-left: 390px;
       color: #999;
-      font-size: 16px;
+      font-size: 32px;
       height: 100%;
     }
     .el-icon-arrow-right {
       float: right;
-      width: 18px;
-      height: 20px;
-      margin-top: 13px;
+      width: 36px;
+      height: 40px;
+      margin-top: 26px;
     }
   }
   .content {
+    padding: 20px 10px;
     ul {
       display: flex;
       flex-flow: row wrap;
       align-items: center;
       justify-content: space-around;
+      padding: 20px 0;
       li {
         display: flex;
         flex-flow: column wrap;
         align-items: center;
         justify-content: center;
         flex: 0 1 45%;
-        padding: 14px 2%;
+        padding: 28px 2%;
         float: left;
         background: #fff;
-        border-radius: 6px;
-        margin: 0 4px 8px 4px;
-        padding: 8px 12px 8px 12px;
-        height: 190px;
-        box-shadow: 0px 6px 20px 0px rgba(121, 152, 215, 0.4);
+        border-radius: 12px;
+        height: 450px;
+        box-shadow: 0px 12px 40px 0px rgba(121, 152, 215, 0.4);
+        margin: 20px 0;
         img {
           display: block;
           width: 100%;
           height: 60%;
           background: #999;
-          margin-bottom: 10px;
+          margin-bottom: 20px;
         }
         .contcenter {
-          height: 36px;
-          font-size: 13px;
+          height: 65px;
+          font-size: 26px;
           color: #000;
-          line-height: 17px;
+          line-height: 34px;
           display: -webkit-box;
           overflow: hidden;
           -webkit-line-clamp: 2;
           text-overflow: ellipsis;
           -webkit-box-orient: vertical;
-          margin: 5px 0;
+          margin: 10px 0;
           text-align: left;
         }
         .confoot {
-          height: 24px;
-          font-size: 12px;
+          height: 48px;
+          font-size: 24px;
           color: #666;
           text-align: left;
-          .right{
-              float: right;
+          .right {
+            float: right;
           }
         }
       }

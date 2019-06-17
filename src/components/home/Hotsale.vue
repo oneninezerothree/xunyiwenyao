@@ -82,75 +82,75 @@ export default {
 
 <style lang="scss" scoped>
 .hotsale {
-  margin-top: 10px;
-  height: 236px;
+  height: 500px;
   width: 100%;
   background: #fff;
+  margin-top: 20px;
   .title {
-    height: 55px;
-    font-size: 10px;
+    height: 110px;
+    font-size: 20px;
     color: #666;
-    padding-top: 21px;
+    padding-top: 42px;
     .left {
       float: left;
       img {
-        width: 85px;
-        height: 22px;
+        width: 170px;
+        height: 44px;
       }
     }
     .right {
       float: right;
       .hao {
         float: left;
-        width: 10px;
-        height: 20px;
-        line-height: 20px;
+        width: 20px;
+        height: 40px;
+        line-height:40px;
       }
       .over {
         float: left;
         color: #333;
-        font-size: 13px;
+        font-size: 26px;
       }
       .time {
         float: left;
-        width: 24px;
-        height: 20px;
+        width: 48px;
+        height: 40px;
         background: rgba(255, 92, 96, 1);
-        border-radius: 5px;
-        line-height: 20px;
+        border-radius: 10px;
+        line-height: 40px;
         font-weight: 600;
         color:#fff;
-        font-size: 14px;
+        font-size: 28px;
       }
     }
   }
   .body {
-    height: 181px;
+    height: 362px;
     width: 100%;
     overflow: auto;
     ul {
-      width: 1380px;
-      margin-left: 10px;
-
+      width: 2760px;
+      margin:0 40px;
+      overflow: hidden;
       li {
         float: left;
-        width: 127px;
-        height: 181px;
-        margin-right: 10px;
+        width: 254px;
+        height: 362px;
+        margin-right: 20px;
         white-space: nowrap;
         div {
-          width: 127px;
-          height: 91px;
+          width: 254px;
+          height: 182px;
           img {
             width: 100%;
             height: 100%;
           }
         }
         .cont {
-          width: 127px;
-          height: 41px;
-          margin: 9px 0 15px;
-          font-size: 13px;
+          width: 254px;
+          height: 82px;
+          margin: 18px 0 30px;
+          font-size: 26px;
           color: #313131;
           white-space: normal;
           display: -webkit-box;
@@ -159,21 +159,21 @@ export default {
           text-overflow: ellipsis;
           -webkit-box-orient: vertical;
           color: #313131;
-          line-height: 20px;
+          line-height: 40px;
         }
         .how {
-          width: 127px;
-          height: 20px;
+          width: 254px;
+          height: 40px;
           color: #d2d2d2;
-          font-size: 10px;
+          font-size: 20px;
           font-weight: 700;
           text-align: left;
           i {
-            font-size: 12px;
+            font-size: 24px;
             color: rgba(255, 92, 96, 1);
           }
           span {
-            font-size: 19px;
+            font-size: 38px;
             color: rgba(255, 92, 96, 1);
           }
         }

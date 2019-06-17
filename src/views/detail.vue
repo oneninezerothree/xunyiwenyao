@@ -27,10 +27,11 @@
           <div>
             <div class="jiage">
               <span class="red">￥</span>
-              <span class="red">{{wenzi.money}}</span>
+              <span class="red">{{wenzi.price}}</span>
+              <span class="red">起</span>
               <span class="blue">起价说明</span>
             </div>
-            <span>{{wenzi.sale}}</span>
+            <span>{{wenzi.salenum}}</span>
           </div>
           <p class="youhui">
             <span>优惠</span>
@@ -81,6 +82,7 @@ import { constants } from 'fs';
 export default {
   data() {
     return {
+      detailinfo:{},
       lunbo: [],
       wenzi:{},
       xuhao:"",
@@ -88,7 +90,7 @@ export default {
         {iconclass:"el-icon-s-home",font:"首页",aqpath:"/"},
         {iconclass:"el-icon-shopping-cart-1",font:"购物车",aqpath:"/aqcart"},
         {iconclass:"el-icon-search",font:"搜索",aqpath:"/"},
-        {iconclass:"el-icon-s-custom",font:"个人中心",aqpath:"/aqme"}
+        {iconclass:"el-icon-s-custom",font:"个人中心",aqpath:"/reslogin"}
       ],
       theround:true
     }
@@ -101,33 +103,36 @@ export default {
         this.$router.push(aqpath)
     },
     addtocart(){
-      this.$router.push('/addtocart')
+      this.$router.push({path: '/addtocart', query:{id:this.xuhao}})
     },
     togolesmall(){
       this.theround = !this.theround;
     },
-    async getlunbo() {
-      const { g, p } = request;
+    async getdetail() {
+      const { g, p,modify } = request;
       const data = await g({
-        url: 'https://www.easy-mock.com/mock/5d00e9c806c5a82ca8aabe7c/aiqu/detail/lunbo/'+this.xuhao,
+        url: 'http://localhost:1901/goods/'+this.xuhao,
       });
-      this.lunbo = data.data.map((item)=>{
+      this.lunbo = data.data.data[0].imgs.map((item)=>{
         return {img:item.lunbo};
-      });
+      })
+      this.wenzi = data.data.data[0];
+      // this.lunbo = data.data.map((item)=>{
+      //   return {img:item.lunbo};
+      // });
     },
-    async getwenzi() {
-      const { g, p } = request;
-      const data = await g({
-        url: 'https://www.easy-mock.com/mock/5d00e9c806c5a82ca8aabe7c/aiqu/detail/'+this.xuhao,
-      });
-      this.wenzi = data.data[0]
-    },
+    // async getwenzi() {
+    //   const { g, p } = request;
+    //   const data = await g({
+    //     url: 'https://www.easy-mock.com/mock/5d00e9c806c5a82ca8aabe7c/aiqu/detail/'+this.xuhao,
+    //   });
+    //   this.wenzi = data.data[0]
+    // },
   },
   created() {
     this.$store.state.isshowtime = false;
     this.xuhao = this.$route.query.id;
-    this.getlunbo();
-    this.getwenzi();
+    this.getdetail();
   }
 };
 </script>
@@ -169,7 +174,7 @@ export default {
   font-weight: 700;
   position: fixed;
   z-index: 100;
-  width: 750px;
+  width: 100%;
   color: #fff;
   background-color: rgba(200, 200, 200, 0.1);
 }
@@ -256,7 +261,7 @@ export default {
 }
 #aq-detail .aq-footer{
     position: fixed;
-    width:750px;
+    width:100%;
     height: 100px;
     background: pink;
     bottom:0;

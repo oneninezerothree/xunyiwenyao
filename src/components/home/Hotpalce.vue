@@ -43,54 +43,55 @@ export default {
 </script>
 <style lang="scss" scoped>
 .hotpalce {
-  height: 222px;
+  height: 444px;
   width: 100%;
   background: #fff;
-  margin-top: 10px;
+  margin-top: 20px;
   .title {
-    border-bottom: 1px solid #eee;
-    height: 41px;
-    line-height: 41px;
+    border-bottom: 2px solid #eee;
+    height: 82px;
+    line-height: 82px;
+    padding:0 20px;
     .palce {
       float: left;
-      font-size: 16px;
+      font-size: 32px;
       color: #333;
-      padding-left: 10px;
+      padding-left: 20px;
       font-weight: 700;
     }
     .el-icon-place {
       float: left;
-      width: 20px;
-      height: 18px;
-      font-size: 18px;
-      margin: 10px 0 0 6px;
+      width: 40px;
+      height: 36px;
+      font-size: 36px;
+      margin: 20px 0 0 12px;
       font-weight: 700;
     }
     .more {
       margin-left: 195px;
       color: #999;
-      font-size: 16px;
+      font-size: 32px;
       height: 100%;
     }
     .el-icon-arrow-right {
       float: right;
-      width: 18px;
-      height: 20px;
-      margin-top: 13px;
+      width: 72px;
+      height: 40px;
+      margin-top: 26px;
     }
   }
   .imgbox {
-    height: 190px;
+    height: 380px;
     ul {
-      padding: 0 10px 0;
+      overflow:hidden;
       li {
         position: relative;
         float: left;
         display: inline-block;
-        padding-left: 10px;
-        margin-top: 10px;
-        width: 33.33%;
-        height: 75px;
+        padding:0 20px;
+        margin-top: 20px;
+        width: 33%;
+        height: 150px;
         box-sizing: border-box;
         overflow: hidden;
         
@@ -101,8 +102,8 @@ export default {
       
         span{
             position: absolute;
-            left: 15px;
-            bottom: 5px;
+            left: 30px;
+            bottom: 10px;
             color:#fff;
             font-size: 14px;
         }

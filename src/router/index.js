@@ -4,11 +4,11 @@ import Home from '../views/Home.vue'
 import Reslogin from '../views/Reslogin.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
-import List from '../view/List.vue'
-import Order from '../view/Order.vue'
-import Detail from '../view/detail.vue'
-import Cart from '../view/Cart.vue'
-import addCart from '../view/addtocart.vue'
+import List from '../views/List.vue'
+import Order from '../views/Order.vue'
+import Detail from '../views/detail.vue'
+import Cart from '../views/Cart.vue'
+import addCart from '../views/addtocart.vue'
 
 
 Vue.use(Router)
@@ -60,6 +60,19 @@ export default new Router({
       path:'/addtocart',
       name:'addCart',
       component:addCart
+    },
+    {
+      path: '/aqlist',
+      name: 'list',
+      component: List
+    },
+    {
+      path: '/about/:id',
+      name: 'about',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     }
   ]
 })

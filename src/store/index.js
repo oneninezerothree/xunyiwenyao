@@ -6,6 +6,8 @@ Vue.use(Vuex);
 //把本地存储用户名取出来
 var arr = JSON.parse(localStorage.getItem('arr') || '[]')
 var useringname = JSON.parse(localStorage.getItem('useringname') || '[]')
+var isShowOut = JSON.parse(localStorage.getItem('isShowOut') || 'false')
+
 
 const store = new Vuex.Store({
   //初始化数据
@@ -17,8 +19,11 @@ const store = new Vuex.Store({
     logining: false,
     users: useringname,
     isok : '', //view层注册是否成功
-    isShowOut : false, //默认不显示退出按钮
+    isShowOut : isShowOut, //默认不显示退出按钮
     loginUserName : '个人中心',
+    isshowtime:true,
+    pages:"/",
+    detaillist:{}
   },
 
   mutations: {
@@ -49,6 +54,8 @@ const store = new Vuex.Store({
           state.isLogin = true;
           state.users = logininf.name;
           state.pw = logininf.password;
+          state.isShowOut = true; 
+          localStorage.setItem('isShowOut', JSON.stringify(state.isShowOut))
           localStorage.setItem('useringname', JSON.stringify(state.users))
           return true
         } else {

@@ -5,7 +5,7 @@
                 <i class="shezhi el-icon-setting"></i>
                 <i class="kefu el-icon-service"></i>
                 <i class="mes el-icon-tickets"></i>
-                <span v-text="$store.state.loginUserName"></span>
+                <span v-text="$store.state.loginUserName" style="padding-left: 2.5rem;"></span>
             </div>
             <div class="rl" style="height:100px;">
                 <p>
@@ -67,6 +67,7 @@
 export default {
   created() {
     this.$store.state.isshowtime = true;
+    this.$store.state.pages = this.$route.path;
   },
   methods: {
     goOut() {
@@ -74,116 +75,117 @@ export default {
       localStorage.removeItem("useringname");
       this.$store.state.isShowOut = false;
       this.$store.state.loginUserName = '个人中心';
-    }
+    },
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .header {
-  height: 150px;
+  height: 300px;
+  font-size: 36px;
   .top {
-    height: 40px;
-    line-height: 40px;
+    height: 80px;
+    line-height: 80px;
     background: #1ac5fb;
     color: #fff;
     .shezhi {
       float: left;
-      font-size: 18px;
+      font-size: 36px;
       color: #ccc;
-      width: 18px;
-      height: 18px;
-      margin: 10px 0 0 5px;
+      width: 36px;
+      height: 36px;
+      margin: 20px 0 0 10px;
     }
     .mes {
       float: right;
-      font-size: 18px;
+      font-size: 36px;
       color: #ccc;
-      width: 18px;
-      height: 18px;
-      margin: 10px 0px 0 5px;
+      width: 36px;
+      height: 36px;
+      margin: 20px 0px 0 10px;
     }
     .kefu {
       float: right;
-      font-size: 18px;
+      font-size: 36px;
       color: #ccc;
-      width: 18px;
-      height: 18px;
-      margin: 10px 5px 0 5px;
+      width: 36px;
+      height: 36px;
+      margin: 20px 10px 0 10px;
     }
   }
   .bott {
-    height: 20px;
-    border-radius: 0 0 200px 200px;
+    height: 40px;
+    border-radius: 0 0 400px 400px;
   }
   .rl {
     overflow: hidden;
-    height: 100px;
+    height: 200px;
     text-align: center;
     p {
-      height: 40px;
-      margin-top: 30px;
+      height: 80px;
+      margin-top: 60px;
       width: 100%;
       .login {
         display: inline-block;
         width: 34.9%;
-        padding: 8px 0;
+        padding: 16px 0;
         margin: 0 3%;
         height: auto;
         overflow: hidden;
-        -moz-border-radius: 3px;
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
         color: #fff;
-        font-size: 18px;
+        font-size: 36px;
         background: #1ece6d;
       }
       .res {
         display: inline-block;
         width: 34.9%;
-        padding: 8px 0;
+        padding: 16px 0;
         margin: 0 3%;
         height: auto;
         overflow: hidden;
-        -moz-border-radius: 3px;
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius:6px;
+        border-radius: 6px;
         color: #fff;
-        font-size: 18px;
+        font-size: 36px;
         background: #1ac5fb;
       }
     }
   }
 }
 .center {
-  height: 10px;
+  height: 20px;
   background: #eee;
 }
 .more {
   p {
-    height: 41px;
-    line-height: 41px;
-    border-bottom: 1px solid #eee;
-    margin: 0 5px;
+    height: 82px;
+    line-height: 82px;
+    border-bottom: 2px solid #eee;
+    margin: 0 10px;
     .ileft {
       float: left;
-      width: 20px;
-      height: 20px;
-      font-size: 20px;
-      margin: 10px 10px 0px;
+      width: 4px;
+      height: 40px;
+      font-size: 40px;
+      margin: 20px 20px 0px;
     }
     span {
       float: left;
       color: #666;
-      font-size: 16px;
-      margin-left: 20px;
+      font-size: 32px;
+      margin-left: 40px;
     }
     .iright {
       float: right;
-      width: 20px;
-      height: 20px;
-      font-size: 20px;
-      margin: 10px 10px 0px;
+      width:40px;
+      height: 40px;
+      font-size: 40px;
+      margin: 20px 20px 0px;
     }
     .rmb {
       float: right;

@@ -2,9 +2,10 @@
     <div>
         <div class="top">
             <router-link to="/reslogin" class="router">
-                <i class="el-icon-arrow-left"></i>
+                <i class="el-icon-arrow-left" style="margin-top: 0.2rem;"></i>
             </router-link>
-            密码登陆
+            <span style="padding-left: 3.5rem;">密码登陆</span>
+            
             <router-link class="res" to="/register">
                         注册
             </router-link>
@@ -94,9 +95,9 @@ export default {
 
 <style lang="scss" scoped>
 .top {
-  height: 40px;
-  line-height: 40px;
-  font-size: 16px;
+  height: 80px;
+  line-height: 80px;
+  font-size: 32px;
   color: #fff;
   background: #1ac5fb;
   .router {
@@ -109,33 +110,33 @@ export default {
   }
   i {
     float: left;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
   }
   a {
     float: right;
-    padding-right: 10px;
+    padding-right: 20px;
   }
 }
 .form {
-  margin-top: 50px;
+  margin-top: 100px;
   div {
-    height: 40px;
-    line-height: 40px;
+    height: 80px;
+    line-height: 80px;
     background: hsla(212, 70%, 52%, 0.1);
-    margin: 10px;
-    border-radius: 8px;
-    padding-left: 13px;
+    margin: 20px;
+    border-radius: 16px;
+    padding-left: 26px;
     i {
       float: left;
-      width: 20px;
-      height: 40px;
-      line-height: 40px;
+      width: 40px;
+      height: 80px;
+      line-height:80px;
       text-align: center;
     }
     input {
       width: 70%;
-      margin-left: 20px;
+      margin-left: 40px;
       float: left;
       height: 100%;
       background: rgba(273, 242, 245, 0.1);
@@ -143,13 +144,13 @@ export default {
   }
 }
 .foot {
-  margin-top: 20px;
-  height: 30px;
-  line-height: 30px;
+  margin-top: 40px;
+  height: 60px;
+  line-height: 60px;
   text-align: right;
-  padding-right: 15px;
+  padding-right: 30px;
   a {
-    font-size: 16px;
+    font-size: 32px;
     color: #aaa;
   }
 }

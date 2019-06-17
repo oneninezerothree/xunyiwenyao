@@ -17,6 +17,7 @@
             <Hotpalce/>
             <Recomment/>
         </div>
+        <div class="aqqfooter"></div>
     </div>
 </template>
 <script>
@@ -34,7 +35,8 @@ export default {
     Recomment
   },
   created(){
-        this.$store.state.isshowtime = true
+        this.$store.state.isshowtime = true;
+        this.$store.state.pages = this.$route.path;
   },
   mounted(){
     window.addEventListener("scroll",this.handleFun);
@@ -60,30 +62,34 @@ export default {
   position: relative;
   background: #ddd;
 }
+.aqqfooter{
+  width: 100%;
+  height:100px;
+}
 .home_top {
   position: fixed;
   z-index: 33;
-  height: 52px;
-  padding: 10px;
+  height: 104px;
+  padding: 20px;
   width: 100%;
-  border-radius:0 0 15px 15px;
+  border-radius:0 0 30px 30px;
   .sreach {
     float: left;
     width: 80%;
-    height: 30px;
-    line-height: 30px;
+    height: 60px;
+    line-height: 60px;
     background-color: #fff;
-    padding-left: 20px;
-    border-radius: 15px;
+    padding-left: 40px;
+    border-radius: 30px;
     text-align: left;
-    margin-left: 5px;
+    margin-left: 10px;
     i {
       float: left;
-      width: 16px;
-      height: 16px;
-      font-size: 16px;
-      margin-top: 8px;
-      margin-right: 10px;
+      width: 32px;
+      height: 32px;
+      font-size: 32px;
+      margin-top: 16px;
+      margin-right: 20px;
       font-weight: 700;
       color: #939398;
     }
@@ -92,28 +98,28 @@ export default {
     }
     .sou {
       float: right;
-      width: 60px;
+      width: 120px;
       height: 100%;
       color: #fff;
       text-align: center;
-      border-radius: 0px 15px 15px 0;
+      border-radius: 0px 30px 30px 0;
       background: #939398;
     }
   }
   .router {
     float: right;
-    width: 16px;
-    height: 20px;
-    font-size: 20px;
-    margin-top: 4px;
+    width: 32px;
+    height: 40px;
+    font-size: 40px;
+    margin-top: 8px;
     font-weight: 700;
-    margin-right: 10px;
+    margin-right: 20px;
   }
   .home_login {
     float: right;
-    width: 16px;
-    height: 20px;
-    font-size: 20px;
+    width: 32px;
+    height: 40px;
+    font-size: 40px;
     font-weight: 700;
   }
 }

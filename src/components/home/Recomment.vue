@@ -2,25 +2,24 @@
     <div class="recomment">
         <div class="title">
             <i class="el-icon-place" style="color:red"></i>
-            <span class="palce">热门目的地</span>
+            <span class="palce">精品推荐</span>
             <span class="more">更多</span>  
             <i class="el-icon-arrow-right"></i>
         </div>  
         <div class="content">
             <ul>
                 <li v-for="(a,index) in remdata" :key="index" @click="gotdetail(11)" >
-                        <img :src="a.imgs" alt="">
-                        <p class="contcenter" v-text="a.texts"></p>
-                        <p class="confoot">
-                            <span class="price" style="color:red" v-text="a.price">
-                                <i style="color:#ccc">起</i>
-                            </span>
-                            <span class="right">
-                                <i style="color:#ccc" v-text="a.much">111</i>
-                                人去过
-                            </span>
-                        </p>
-                 
+                  <img :src="a.imgs" alt="">
+                  <p class="contcenter" v-text="a.texts"></p>
+                  <p class="confoot">
+                      <span class="price" style="color:red" v-text="a.price">
+                          <i style="color:#ccc">起</i>
+                      </span>
+                      <span class="right">
+                          <i style="color:#ccc" v-text="a.much">111</i>
+                          人去过
+                      </span>
+                  </p>
                 </li>
             </ul>
         </div>

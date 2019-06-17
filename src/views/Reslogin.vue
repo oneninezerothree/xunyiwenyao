@@ -5,7 +5,7 @@
                 <i class="shezhi el-icon-setting"></i>
                 <i class="kefu el-icon-service"></i>
                 <i class="mes el-icon-tickets"></i>
-                <span>个人中心</span>
+                <span v-text="$store.state.loginUserName"></span>
             </div>
             <div class="rl" style="height:100px;">
                 <p>
@@ -57,6 +57,9 @@
                 <i class="el-icon-arrow-right iright"></i>
                 <i class="rmb">人民币RBM</i>
             </p>
+            <p style=" text-align: right;padding-right:10px;color:red" @click="goOut()" v-if="$store.state.isShowOut">
+              退出
+            </p>
         </div>
     </div>
 </template>
@@ -64,6 +67,14 @@
 export default {
   created() {
     this.$store.state.isshowtime = true;
+  },
+  methods: {
+    goOut() {
+      this.$store.state.users = "";
+      localStorage.removeItem("useringname");
+      this.$store.state.isShowOut = false;
+      this.$store.state.loginUserName = '个人中心';
+    }
   }
 };
 </script>

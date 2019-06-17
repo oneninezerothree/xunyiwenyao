@@ -9,20 +9,19 @@
         <div class="content">
             <ul>
                 <li v-for="(a,index) in remdata" :key="index" @click="gotdetail(a.shopid)" >
-                        <img :src="a.imgs[0].lunbo" alt="">
-                        <p class="contcenter" v-text="a.title"></p>
-                        <p class="confoot">
-                            ￥
-                            <span class="price" style="color:red" v-text="a.price">
-                                <!-- <i style="color:#ccc">起</i> -->
-                            </span>
-                            <i style="color:red">起</i>
-                            <span class="right">
-                                <i style="color:#ccc" v-text="a.salenum">111</i>
-                                人去过
-                            </span>
-                        </p>
-                 
+                  <img :src="a.imgs[0].lunbo" alt="">
+                  <p class="contcenter" v-text="a.title"></p>
+                  <p class="confoot">
+                      ￥
+                      <span class="price" style="color:red" v-text="a.price">
+                          <!-- <i style="color:#ccc">起</i> -->
+                      </span>
+                      <i style="color:red">起</i>
+                      <span class="right">
+                          <i style="color:#ccc" v-text="a.salenum">111</i>
+                          人去过
+                      </span>
+                  </p>
                 </li>
             </ul>
         </div>
@@ -33,7 +32,7 @@ import request from "../../libs/request";
 export default {
   data() {
     return {
-     remdata: [],
+      remdata: []
     };
   },
   created() {
@@ -41,25 +40,24 @@ export default {
   },
   methods: {
     async getShopList() {
-      const { g, p, modify} = request;
+      const { g, p, modify } = request;
       const data = await g({
-        url:"http://localhost:1901/goods"
-      })
+        url: "http://localhost:1901/goods"
+      });
       // this.remdata = [...this.remdata , ...data.data.remdata];
       this.remdata = data.data.data;
       console.log(this.remdata[0].price);
-      
     },
-    gotdetail(num){
-        this.$router.push({path: '/detail/', query:{id:num}})
-    },
+    gotdetail(num) {
+      this.$router.push({ path: "/detail/", query: { id: num } });
+    }
   }
 };
 </script>
 <style lang="scss" scoped>
 .recomment {
   background: #fff;
-  margin-top:20px;
+  margin-top: 20px;
   .title {
     border-bottom: 2px solid #eee;
     height: 82px;
@@ -93,13 +91,13 @@ export default {
     }
   }
   .content {
-    padding:20px 10px;
+    padding: 20px 10px;
     ul {
       display: flex;
       flex-flow: row wrap;
       align-items: center;
       justify-content: space-around;
-      padding:20px 0;
+      padding: 20px 0;
       li {
         display: flex;
         flex-flow: column wrap;
@@ -109,10 +107,10 @@ export default {
         padding: 28px 2%;
         float: left;
         background: #fff;
-        border-radius:12px;
+        border-radius: 12px;
         height: 450px;
         box-shadow: 0px 12px 40px 0px rgba(121, 152, 215, 0.4);
-        margin:20px 0;
+        margin: 20px 0;
         img {
           display: block;
           width: 100%;
@@ -138,8 +136,8 @@ export default {
           font-size: 24px;
           color: #666;
           text-align: left;
-          .right{
-              float: right;
+          .right {
+            float: right;
           }
         }
       }

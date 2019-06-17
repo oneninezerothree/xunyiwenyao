@@ -2,9 +2,10 @@
     <div>
         <div class="top">
             <router-link to="/reslogin" class="router">
-                <i class="el-icon-arrow-left"></i>
+                <i class="el-icon-arrow-left" style="margin-top: 0.2rem;"></i>
             </router-link>
-            密码登陆
+            <span style="padding-left: 3.5rem;">密码登陆</span>
+            
             <router-link class="res" to="/register">
                         注册
             </router-link>
@@ -12,13 +13,13 @@
         <div class="form">
             <div>
                 <i class="el-icon-user-solid"></i>
-                <input type="text" v-model="phonenum" placeholder="请输入手机号">
+                <input type="text" v-model="username" placeholder="请输入手机号">
             </div>
             <div>
                 <i class="el-icon-unlock"></i>
-                <input type="text" placeholder="请输入密码" v-model="password">
+                <input type="password" placeholder="请输入密码" v-model="password">
             </div>
-            <div style="text-align: center;" @click="isright()">
+            <div style="text-align: center;" @click="gotoLogin()">
                 登陆
             </div>
             <span v-text="name"></span>
@@ -33,7 +34,7 @@
 export default {
   data() {
     return {
-      phonenum: "",
+      username: "",
       password: "",
       name: "",
       backurl: ""
@@ -45,10 +46,47 @@ export default {
       if (this.name == this.phonenum) {
         console.log("相等");
       }
-    }
+    },
+    gotoLogin() {
+      if (this.$store.state.users != "") {
+        const h = this.$createElement;
+        this.$notify({
+          title: "提醒",
+          message: h("i", { style: "color: teal" }, "请退出在登陆")
+        });
+      } else {
+        if (this.username != "" && this.password != "") {
+          var logininf = {};
+          logininf["name"] = this.username;
+          logininf["password"] = this.password;
+          this.$store.commit("checkLoginuser", logininf);
+          //判断用户名和password匹配
+          if (this.$store.state.isLogin == true) {
+            this.$router.push({
+              path : `/reslogin`,
+            });
+             this.$store.state.isShowOut = true;
+             this.$store.state.loginUserName = this.username;
+          } else {
+            this.$store.state.users = "";
+            const h = this.$createElement;
+            this.$notify({
+              title: "提醒",
+              message: h("i", { style: "color: teal" }, "密码或用户名有误")
+            });
+          }
+        } else {
+          const h = this.$createElement;
+          this.$notify({
+            title: "提醒",
+            message: h("i", { style: "color: teal" }, "请完善填写信息")
+          });
+        }
+      }
+    },
   },
   watch: {
-      $route(to, from) {
+    $route(to, from) {
       console.log(1111);
     }
   }
@@ -62,13 +100,13 @@ export default {
   font-size: 32px;
   color: #fff;
   background: #1ac5fb;
-  .router{
+  .router {
     float: left;
-    width: 4px;
-    height: 40px;
-    line-height: 40px;
-    margin-top: 24px;
-    margin-left:10px ;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 12px;
+    margin-left: 5px;
   }
   i {
     float: left;

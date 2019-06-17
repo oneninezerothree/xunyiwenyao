@@ -1,6 +1,6 @@
 <template>
-  <header
-    class="header"
+  <div
+    class="bheader"
     style="animation: 0.15s ease 0s 1 normal none running changeHeaderHeightLong; height: 20vw;"
   >
     <span class="close-search" v-if="show">取消</span>
@@ -25,27 +25,28 @@
      <div class="search-list" style="display: none;">
     <p class="search-toast">输入关键字搜索</p>
   </div>
-  </header>
+  </div>
 </template>
 <script>
 import Vue from 'vue'
 
 export default Vue.extend({
        name:"header",
-        data:{
+        data(){
+          return{
             show:false
+          }
         },
         methods:{
             toggle:function(){
                 this.show=true;
-                console.log(this.show)
             }
         }
 })
 </script>
 
 <style scoped>
-.header {
+.bheader {
     height: 20vw;
     width: 100%;
     background-color: #1ac5fb;

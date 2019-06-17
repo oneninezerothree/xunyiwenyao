@@ -42,13 +42,22 @@ export default {
             cartlist:{},
             cartlistbig:[],
             img:"",
-            title:""
+            title:"",
+            lastpath:""
         }
     },
     methods:{
         gotodetail(){
             if(this.timetime != ""){
-                this.chaxun();
+                console.log("现在的值",this.lastpath)
+                if(this.lastpath == "Detail"){
+                    this.getcartlist();
+                    this.addtocart(this.cartlist);
+                }
+                if(this.lastpath == "Cart"){
+                    this.getxiugai();
+                    this.xiugai(this.cartlist);
+                }
             }else{
               this.$message.error({
                     message: '请选择出行日期'
@@ -58,40 +67,46 @@ export default {
         },
         getcartlist(){  
             this.cartlist.shopid = this.shopid;
-            this.cartlist.price = this.danjia;
+            this.cartlist.price = this.jiage;
             this.cartlist.num = this.num;
             this.cartlist.date = this.timetime;
             this.cartlist.img = this.img;
-            this.cartlist.title = this.title
+            this.cartlist.title = this.title;
             console.log("购物车列表",this.cartlist);
+        },
+        getxiugai(){
+            this.cartlist.date = this.timetime;
+            this.cartlist.price = this.jiage;
+            this.cartlist.num = this.num;
         },
         riqi(value){
             this.timetime = value;
         },
-        async chaxun() {
-            const { g, p,modify } = request;
-            const data = await g({
-                url: 'http://localhost:1901/cart/'+this.shopid
-            });
-            if(data.status == 200){
-                // this.$message.success({
-                //     message: '加入购物车成功'
-                // });  
-                // console.log("是啥",data.data.data.length);
-                if(data.data.data.length == 0){
-                    await this.getcartlist();
-                    this.addtocart(this.cartlist);
-                }else{
-                    await this.xiugai({num:this.num});
-                    this.$router.go(-1);
+        // async chaxun() {
+        //     const { g, p,modify } = request;
+        //     const data = await g({
+        //         url: 'http://localhost:1901/cart/'+this.shopid
+        //     });
+        //     if(data.status == 200){
+        //         // this.$message.success({
+        //         //     message: '加入购物车成功'
+        //         // });  
+        //         // console.log("是啥",data.data.data.length);
+        //         if(data.data.data.length == 0){
+        //             await this.getcartlist();
+        //             this.addtocart(this.cartlist);
+        //         }else{
+        //             await this.xiugai({num:this.num});
+        //             this.$router.go(-1);
 
-                }
-            }else{
-                this.$message.error({
-                    message: '加入购物车失败，请稍后重试'
-                });  
-            }
-        },
+        //         }
+        //     }else{
+        //         this.$message.error({
+        //             message: '加入购物车失败，请稍后重试'
+        //         });  
+        //     }
+        // },
+        //将商品信息存入购物车数据库
         async addtocart(shuju) {
             const { g, p,modify } = request;
             const data = await p({
@@ -119,7 +134,7 @@ export default {
             this.img = data.data.data[0].imgs[0].lunbo;
             this.title = data.data.data[0].title;
         },
-
+        //修改商品
         async xiugai(shuju) {
             const { g, p,modify } = request;
             const data = await modify({
@@ -127,7 +142,10 @@ export default {
                 headers: { 'content-type': 'application/x-www-form-urlencoded' },
                  shuju: shuju
             });
-            console.log("修改了？",data)
+            this.$message.success({
+                    message: '修改成功'
+                }); 
+            this.$router.go(-1);
         },
 
         jiajian(value){
@@ -142,6 +160,11 @@ export default {
         this.$store.state.isshowtime = false;
         this.shopid = this.$route.query.id;
         this.getxinxi();
+    },
+    beforeRouteEnter:(to,from,next)=>{
+        next(vm=>{
+            vm.lastpath = from.name;
+        })
     }
 }
 </script>
@@ -150,6 +173,7 @@ export default {
         height: 100%;
         display:flex;
         flex-direction: column;
+        text-align: center;
     }
     #addtocart .carttop{
         height: 100px;

@@ -14,6 +14,7 @@ import Amain from '@/components/Amain.vue'
 export default {
   created(){
     this.$store.state.pages = this.$route.path;
+    this.$store.state.isshowtime = true;
   },
   components: {
     Bheader,

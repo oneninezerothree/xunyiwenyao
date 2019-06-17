@@ -31,9 +31,22 @@ const modify = (option) => {
     return axios.put(url, qs.stringify(shuju))
 }
 
+const d = (option) => {
+    const {
+        url,
+        params
+    } = option
+    return axios.delete(url, {
+        params: {
+            ...params
+        }
+    })
+}
+
 export default {
     g,
     p,
-    modify
+    modify,
+    d
 }
 

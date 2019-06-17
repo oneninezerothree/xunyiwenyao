@@ -62,6 +62,11 @@ exports.delete = async (colName,query)=>{
         // _id:'xxx' -> _id:ObjectId('xxx');
         query.shopid = query.shopid;
     }
+    if(query._id){
+        // 通过id查询数据必须使用这种格式
+        // _id:'xxx' -> _id:ObjectId('xxx');
+        query._id = ObjectId(query._id);
+    }
 
     let result;
     try{

@@ -2623,15 +2623,8 @@ export default Vue.extend({
       nowIndex:0,
     };
   },
-  async created() {
-    const { g, p } = request;
-    const data = await g({
-      url:
-        "https://www.easy-mock.com/mock/5cff684bfac62e175f62d307/example/qunar"
-    });
-    this.swiperList = data.data.data.swiperList;
-    this.iconList = data.data.data.iconList;
-    console.log(data);
+  created(){
+    this.getlist();
   },
   methods:{
         toggleTabs:function(index){
@@ -2644,6 +2637,16 @@ export default Vue.extend({
         this.$router.push({
           path: `/about/${id}`,
         })
+      },
+      async getlist() {
+        const { g, p } = request;
+        const data = await g({
+          url:
+            "https://www.easy-mock.com/mock/5cff684bfac62e175f62d307/example/qunar"
+        });
+        this.swiperList = data.data.data.swiperList;
+        this.iconList = data.data.data.iconList;
+        console.log(data);
       },
     }
     

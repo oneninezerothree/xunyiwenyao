@@ -1,5 +1,5 @@
 <template>
-  <header class="list-header clearfix">
+  <div class="list-header clearfix">
 		    <div class="layout-header-container">
 		    	<i class="iconfont icon_back" id="backBtn_back"></i>
 		        <h1 class="title"><span>自助游</span></h1>
@@ -8,7 +8,7 @@
                 </span>
 	          <a href="javascript:void(0)" class="toggle-category"><i class="iconfont"></i></a>
 		    </div>
-	   </header>
+	   </div>
      
 </template>
 

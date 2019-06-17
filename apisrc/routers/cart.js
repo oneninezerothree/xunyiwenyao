@@ -43,6 +43,19 @@ Router.get('/',async (req,res)=>{
     res.send(result);
 })
 
+Router.route('/:id')
+.delete(async (req,res)=>{
+    let {id} = req.params;
+    
+    let result;
+    try{
+        result = await db.delete(colName,{_id:id})
+        result = formatData({data:result})
+    }catch(err){
+        result = formatData({status:400,msg:err})
+    }
+    res.send(result);
+})
 
 // 获取商品信息
 Router.route('/:id')
@@ -60,18 +73,7 @@ Router.route('/:id')
     res.send(result);
 })
 
-.delete(async (req,res)=>{
-    let {id} = req.params;
-    
-    let result;
-    try{
-        result = await db.delete(colName,{shopid:id})
-        result = formatData({data:result})
-    }catch(err){
-        result = formatData({status:400,msg:err})
-    }
-    res.send(result);
-})
+
 
 // 修改商品
 .put(async (req,res)=>{//req.body=>{price,size,nmae}

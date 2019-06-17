@@ -60,6 +60,7 @@ export default {
     #aq-order{
         display: flex;
         flex-direction: column;
+        text-align: center;
     }
     #aq-order .order-top{
         height: 80px;

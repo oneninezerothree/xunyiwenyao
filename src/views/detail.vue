@@ -143,9 +143,12 @@ export default {
 .blue {
   color: blue;
 }
-
+#aq-detail{
+  text-align: center;
+}
 #aq-detai .neirongbox{
   background: red;
+  text-align: center;
 }
 #aq-detail .aq-daohang{
     position: fixed;

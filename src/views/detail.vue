@@ -133,6 +133,7 @@ export default {
     this.$store.state.isshowtime = false;
     this.xuhao = this.$route.query.id;
     this.getdetail();
+    console.log(this.xuhao);
   }
 };
 </script>

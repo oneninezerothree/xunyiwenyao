@@ -68,7 +68,8 @@ export default {
             isIndeterminate:false,
             checkAll: false,
             checked:false,
-            totalshow:true
+            totalshow:true,
+            cartid:''
         }
     },
     methods:{
@@ -76,9 +77,11 @@ export default {
             this.$router.go(-1);
         },
         async getCartList() {
+            this.cartid = this.$store.state.arr[0].name;
+            // console.log("yonghuming ",this.cartid)
             const { g, p, modify} = request;
             const data = await g({
-                url:"http://localhost:1901/cart"
+                url:"http://localhost:1901/cart/"+this.cartid
             })
             // this.remdata = [...this.remdata , ...data.data.remdata];
             this.cartlist = data.data.data;

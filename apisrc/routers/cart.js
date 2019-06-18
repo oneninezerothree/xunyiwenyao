@@ -62,7 +62,6 @@ Router.route('/:id')
 
 .get(async (req,res)=>{
     let {id} = req.params;
-    
     let result;
     try{
         result = await db.find(colName,{shopid:id})

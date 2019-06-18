@@ -7,7 +7,7 @@ Vue.use(Vuex);
 var arr = JSON.parse(localStorage.getItem('arr') || '[]')
 var useringname = JSON.parse(localStorage.getItem('useringname') || '[]')
 var isShowOut = JSON.parse(localStorage.getItem('isShowOut') || 'false')
-
+// var loginUserName = JSON.parse(localStorage.getItem('loginUserName') || '个人中心')
 
 const store = new Vuex.Store({
   //初始化数据
@@ -20,7 +20,7 @@ const store = new Vuex.Store({
     users: useringname,
     isok : '', //view层注册是否成功
     isShowOut : isShowOut, //默认不显示退出按钮
-    loginUserName : '个人中心',
+    // loginUserName : loginUserName,
     isshowtime:true,
     pages:"/",
     detaillist:{}
@@ -57,6 +57,7 @@ const store = new Vuex.Store({
           state.isShowOut = true; 
           localStorage.setItem('isShowOut', JSON.stringify(state.isShowOut))
           localStorage.setItem('useringname', JSON.stringify(state.users))
+          // localStorage.setItem('loginUserName', JSON.stringify(state.loginUserName))
           return true
         } else {
           state.isLogin = false;

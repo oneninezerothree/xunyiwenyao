@@ -43,26 +43,35 @@ export default {
             cartlistbig:[],
             img:"",
             title:"",
-            lastpath:""
+            lastpath:"",
+            cartuser:""
         }
     },
     methods:{
         gotodetail(){
-            if(this.timetime != ""){
-                console.log("现在的值",this.lastpath)
-                if(this.lastpath == "Detail"){
-                    this.getcartlist();
-                    this.addtocart(this.cartlist);
-                }
-                if(this.lastpath == "Cart"){
-                    this.getxiugai();
-                    this.xiugai(this.cartlist);
+            console.log("有吗",this.cartuser);
+            if(this.cartuser != ""){
+                if(this.timetime != ""){
+                    console.log("现在的值",this.lastpath)
+                    if(this.lastpath == "Detail"){
+                        this.getcartlist();
+                        this.addtocart(this.cartlist);
+                    }
+                    if(this.lastpath == "Cart"){
+                        this.getxiugai();
+                        this.xiugai(this.cartlist);
+                    }
+                }else{
+                  this.$message.error({
+                        message: '请选择出行日期'
+                    });  
                 }
             }else{
-              this.$message.error({
-                    message: '请选择出行日期'
-                });  
+                this.$message.error({
+                        message: '请先去登录或者注册'
+                    });  
             }
+            
             
         },
         getcartlist(){  
@@ -72,6 +81,7 @@ export default {
             this.cartlist.date = this.timetime;
             this.cartlist.img = this.img;
             this.cartlist.title = this.title;
+            this.cartlist.userid = this.cartuser;
             console.log("购物车列表",this.cartlist);
         },
         getxiugai(){
@@ -160,6 +170,8 @@ export default {
         this.$store.state.isshowtime = false;
         this.shopid = this.$route.query.id;
         this.getxinxi();
+        this.cartuser = this.$store.state.arr[0].name;
+        // console.log("用户的用户名",this.cartuser);
     },
     beforeRouteEnter:(to,from,next)=>{
         next(vm=>{

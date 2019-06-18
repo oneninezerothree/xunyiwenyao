@@ -1,6 +1,9 @@
 import axios from 'axios'
 import qs from 'qs'
 
+
+// axios.defaults.baseURL='http://localhost:1901'
+
 const g = (option) => {
     const {
         url,

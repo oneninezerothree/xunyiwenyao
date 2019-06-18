@@ -119,6 +119,11 @@ exports.find = async (colName,query={},{skip,limit,sort}={})=>{console.log('quer
         // _id:'xxx' -> _id:ObjectId('xxx');
         query.shopid = query.shopid;
     }
+    if(query.userid){
+        // 通过id查询数据必须使用这种格式
+        // _id:'xxx' -> _id:ObjectId('xxx');
+        query.userid = query.userid;
+    }
 
     let result;
     try{
